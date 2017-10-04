@@ -1,0 +1,7 @@
+{
+    "itemDisplayName": "IIS VMs & SQL Server 2014 VM.",
+    "description": "Create 1 - 4 web servers running IIS on Server 2012 R2 datacentre or Server 2016 datacentre.  Configures vNet, with Frontend and Backend NGSs with appropriate rules.",
+    "summary": "This template creates one to four Window Server 2012R2 or Windows Server 2016 VM(s) with IIS configured using DSC and one SQL Server 2014 standard edition VM.",
+    "githubUsername": "fixx220",
+    "dateUpdated": "2017-10-04"
+  }
