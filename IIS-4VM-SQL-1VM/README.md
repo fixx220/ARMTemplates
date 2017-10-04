@@ -12,6 +12,14 @@
 
 This template creates one to four Windows Server 2012R2 or Windows Server 2016 VM(s) with IIS configured using DSC. It also installs one SQL Server 2014 standard edition VM, a VNET with two subnets, NSG, load balancer, NATing and probing rules.
 
+Context:
+I'm creating this template as a learning tool and modifying one of the quickstart templates created by GitHub User:  alibaloch
+
+You can find the original here:
+<a
+href="https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm" />
+</a>
+
 ## Resources
 The following resources are created by this template:
 - 1 to 4 Windows 2012R2 or Server 2016 IIS Web Servers.
