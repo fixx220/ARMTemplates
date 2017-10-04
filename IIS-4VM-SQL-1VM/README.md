@@ -12,7 +12,7 @@
 
 This template creates one to four Windows Server 2012R2 or Windows Server 2016 VM(s) with IIS configured using DSC. It also installs one SQL Server 2014 standard edition VM, a VNET with two subnets, NSG, load balancer, NATing and probing rules.
 
-Context:<br>
+<b>Context:</b><br>
 I'm creating this template as a learning tool and modifying one of the quickstart templates created by GitHub User:  alibaloch
 
 <b>You can find the original here:</b>
