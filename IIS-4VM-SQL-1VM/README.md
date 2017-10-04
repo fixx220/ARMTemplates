@@ -10,11 +10,11 @@
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-This template creates one or two Windows Server 2012R2 VM(s) with IIS configured using DSC. It also installs one SQL Server 2014 standard edition VM, a VNET with two subnets, NSG, load balancer, NATing and probing rules.
+This template creates one to four Windows Server 2012R2 or Windows Server 2016 VM(s) with IIS configured using DSC. It also installs one SQL Server 2014 standard edition VM, a VNET with two subnets, NSG, load balancer, NATing and probing rules.
 
 ## Resources
 The following resources are created by this template:
-- 1 or 2 Windows 2012R2 IIS Web Servers.
+- 1 to 4 Windows 2012R2 or Server 2016 IIS Web Servers.
 - 1 SQL Server 2014 running on premium or standard storage.
 - 1 virtual network with 2 subnets with NSG rules.
 - 1 storage account for the VHD files.
