@@ -93,17 +93,6 @@
           "description": "The type of the Storage Account created, Standard or Premium Locally Redundant"
         },
         "defaultValue": "Standard_LRS"
-      },
-      "windowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2016-Datacenter",
-        "allowedValues": [
-          "2012-R2-Datacenter",
-          "2016-Datacenter"
-        ],
-        "metadata": {
-          "description": "The Windows OS Version to be Deployed.  This will select a fully patched image from the Azure Marketplace"
-        }
       }
     },
     "variables": {
@@ -126,7 +115,7 @@
         "sqlPublicIPName": "[concat(parameters('customerPrefixID'), 'SQLPIP')]",
         "sqlPublicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses', variables('sqlPublicIPName'))]",
         "sqlImagePublisher": "MicrosoftSQLServer",
-        "sqlImageOffer": "SQL2014SP2-WS2012R2",
+        "sqlImageOffer": "SQL2016SP1-WS2016",
         "sqlImageSKU": "Standard",
         "webServerName": "[concat(parameters('customerPrefixID'), 'Web')]",
         "webServerVMSize": "[parameters('webServerVMSize')]",
@@ -609,7 +598,7 @@
               "imageReference": {
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
-                "sku": "[parameters('windowsOSVersion')]",
+                "sku": "2016-Datacenter",
                 "version": "latest"
               },
               "osDisk": {
@@ -654,7 +643,7 @@
               "ModulesUrl": "[variables('modulesURL')]",
               "SasToken": "",
               "ConfigurationFunction": "[variables('configurationFunction')]",
-              "wmfVersion": "4.0",
+              "wmfVersion": "5.0",
               "Properties": {}
             },
             "protectedSettings": {}
