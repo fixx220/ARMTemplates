@@ -16,7 +16,9 @@ Context:
 I'm creating this template as a learning tool and modifying one of the quickstart templates created by GitHub User:  alibaloch
 
 You can find the original here:
-<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm" />
+<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm">
+https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm
+</a>
 
 ## Resources
 The following resources are created by this template:
