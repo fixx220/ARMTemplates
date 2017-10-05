@@ -125,6 +125,7 @@
         "webServerPublicIP": "[concat(parameters('customerPrefixID'), 'WebPIP')]",
         "webServerAvailabilitySetName": "[concat(parameters('customerPrefixID'), 'WebServerAS')]",
         "webServerNumberOfInstances": "[parameters('numberOfWebServers')]",
+        "dnsLabelPrefix": "[parameters('dnsLabelPrefix')]",
         "webLoadBalancerName": "[concat(variables('webServerName'), 'LB')]",
         "webLoadBalancerID": "[resourceId('Microsoft.Network/loadbalancers', variables('webLoadBalancerName'))]",
         "webLoadBalancerPIP_ID": "[resourceId('Microsoft.Network/publicIPAddresses', variables('webServerPublicIP'))]",
@@ -420,7 +421,7 @@
             "publicIPAllocationMethod": "Dynamic",
             "idleTimeoutInMinutes": 4,
             "dnsSettings": {
-              "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+              "domainNameLabel": "[variables('dnsLabelPrefix')]"
             }
           }
         },
