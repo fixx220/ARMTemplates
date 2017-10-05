@@ -384,7 +384,7 @@
                   "name": "SQL-Server-DataDisk",
                   "createOption": "Empty",
                   "vhd": {
-                      "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
+                      "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/',variables('vhdContainer'), '/', variables('sqlServerDataDiskName'), '.vhd')]"
                   },
                   "caching": "ReadOnly",
                   "diskSizeGB": 50
@@ -662,3 +662,6 @@
         }
       ]
     }
+
+
+    "dataDisk1VhdName": "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
