@@ -381,15 +381,16 @@
             },
             "dataDisks": [
               {
-                "name": "SQL-Server-DataDisk",
-                "lun": 0,
-                "vhd": {
-                  "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
-                },
-                "caching": "None",
-                "createOption": "Empty"
+                  "lun": 0,
+                  "name": "SQL-Server-DataDisk",
+                  "createOption": "Empty",
+                  "vhd": {
+                      "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
+                  },
+                  "caching": "ReadOnly",
+                  "diskSizeGB": 50
               }
-            ],
+          ],
             "networkProfile": {
               "networkInterfaces": [
                 {
@@ -662,3 +663,23 @@
         }
       ]
     }
+
+
+
+
+    "dataDisks": [
+      {
+          "lun": 0,
+          "name": "SQL-Server-DataDisk",
+          "createOption": "Empty",
+          "vhd": {
+              "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
+          },
+          "caching": "ReadOnly",
+          "diskSizeGB": 50
+      }
+  ]
+}
+
+
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
