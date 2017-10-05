@@ -125,7 +125,6 @@
         "webServerPublicIP": "[concat(parameters('customerPrefixID'), 'WebPIP')]",
         "webServerAvailabilitySetName": "[concat(parameters('customerPrefixID'), 'WebServerAS')]",
         "webServerNumberOfInstances": "[parameters('numberOfWebServers')]",
-        "dnsLabelPrefix": "[parameters('dnsLabelPrefix')]",
         "webLoadBalancerName": "[concat(variables('webServerName'), 'LB')]",
         "webLoadBalancerID": "[resourceId('Microsoft.Network/loadbalancers', variables('webLoadBalancerName'))]",
         "webLoadBalancerPIP_ID": "[resourceId('Microsoft.Network/publicIPAddresses', variables('webServerPublicIP'))]",
@@ -422,7 +421,7 @@
             "publicIPAllocationMethod": "Dynamic",
             "idleTimeoutInMinutes": 4,
             "dnsSettings": {
-              "domainNameLabel": "[variables('dnsLabelPrefix')]"
+              "domainNameLabel": "[parameters('dnsLabelPrefix')]"
             }
           }
         },
@@ -663,23 +662,3 @@
         }
       ]
     }
-
-
-
-
-    "dataDisks": [
-      {
-          "lun": 0,
-          "name": "SQL-Server-DataDisk",
-          "createOption": "Empty",
-          "vhd": {
-              "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
-          },
-          "caching": "ReadOnly",
-          "diskSizeGB": 50
-      }
-  ]
-}
-
-
-"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
