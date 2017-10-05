@@ -109,7 +109,6 @@
         "sqlServerName": "[concat(parameters('customerPrefixID'), 'SQLServer1')]",
         "sqlServerVMSize": "[parameters('sqlServerVMSize')]",
         "sqlServerOSDiskName": "[concat(parameters('customerPrefixID'), 'SQLServerOS')]",
-        "sqlServerDataDiskName": "[concat(parameters('customerPrefixID'), 'SQLServerData')]",
         "sqlServerNICName": "[concat(variables('sqlServerName'), 'NIC')]",
         "sqlServerSubnetRef": "[concat(variables('vNetID'), '/subnets/', 'BackendSubnet')]",
         "sqlPublicIPName": "[concat(parameters('customerPrefixID'), 'SQLPIP')]",
@@ -378,18 +377,6 @@
                 "createOption": "FromImage"
               }
             },
-            "dataDisks": [
-              {
-                  "lun": 0,
-                  "name": "SQL-Server-DataDisk",
-                  "createOption": "Empty",
-                  "vhd": {
-                      "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/',variables('vhdContainer'), '/', variables('sqlServerDataDiskName'), '.vhd')]"
-                  },
-                  "caching": "ReadOnly",
-                  "diskSizeGB": 50
-              }
-          ],
             "networkProfile": {
               "networkInterfaces": [
                 {
