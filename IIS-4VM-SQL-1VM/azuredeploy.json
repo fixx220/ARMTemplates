@@ -109,6 +109,7 @@
         "sqlServerName": "[concat(parameters('customerPrefixID'), 'SQLServer1')]",
         "sqlServerVMSize": "[parameters('sqlServerVMSize')]",
         "sqlServerOSDiskName": "[concat(parameters('customerPrefixID'), 'SQLServerOS')]",
+        "sqlServerDataDiskName": "[concat(parameters('customerPrefixID'), 'SQLServerData')]",
         "sqlServerNICName": "[concat(variables('sqlServerName'), 'NIC')]",
         "sqlServerSubnetRef": "[concat(variables('vNetID'), '/subnets/', 'BackendSubnet')]",
         "sqlPublicIPName": "[concat(parameters('customerPrefixID'), 'SQLPIP')]",
@@ -371,11 +372,23 @@
               "osDisk": {
                 "name": "SQL-Server-OSDisk",
                 "vhd": {
-                  "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerOSDiskName'), '.vhd')]"
+                  "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/', variables('sqlServerOSDiskName'), '.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"
-              }
+              },
+              "dataDisks": [
+                {
+                    "lun": 0,
+                    "name": "[variables('sqlServerDataDiskName')]",
+                    "createOption": "Empty",
+                    "vhd": {
+                        "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/', variables('sqlServerDataDiskName'), '.vhd')]"
+                    },
+                    "caching": "ReadOnly",
+                    "diskSizeGB": 50
+                }
+            ]
             },
             "networkProfile": {
               "networkInterfaces": [
