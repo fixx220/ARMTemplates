@@ -125,7 +125,6 @@
         "webServerPublicIP": "[concat(parameters('customerPrefixID'), 'WebPIP')]",
         "webServerAvailabilitySetName": "[concat(parameters('customerPrefixID'), 'WebServerAS')]",
         "webServerNumberOfInstances": "[parameters('numberOfWebServers')]",
-        "webServerLBIP_DNSName": "[concat(toLower(variables('webServerName')), 'lb')]",
         "webLoadBalancerName": "[concat(variables('webServerName'), 'LB')]",
         "webLoadBalancerID": "[resourceId('Microsoft.Network/loadbalancers', variables('webLoadBalancerName'))]",
         "webLoadBalancerPIP_ID": "[resourceId('Microsoft.Network/publicIPAddresses', variables('webServerPublicIP'))]",
@@ -342,7 +341,7 @@
           }
         },
         {
-          "name": "[concat(parameters('customerPrefixID'), 'SQL2014')]",
+          "name": "[concat(parameters('customerPrefixID'), 'SQL2016SP1')]",
           "type": "Microsoft.Compute/virtualMachines",
           "location": "[resourceGroup().location]",
           "apiVersion": "2015-06-15",
@@ -352,7 +351,7 @@
             "[concat('Microsoft.Network/publicIPAddresses/', variables('sqlPublicIPName'))]"
           ],
           "tags": {
-            "displayName": "SQL-Server-2014"
+            "displayName": "SQL-Server-2016"
           },
           "properties": {
             "hardwareProfile": {
@@ -379,6 +378,17 @@
                 "createOption": "FromImage"
               }
             },
+            "dataDisks": [
+              {
+                "name": "SQL-Server-DataDisk",
+                "lun": 0,
+                "vhd": {
+                  "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
+                },
+                "caching": "ReadOnly",
+                "createOption": "Attach"
+              }
+            ],
             "networkProfile": {
               "networkInterfaces": [
                 {
@@ -410,7 +420,7 @@
             "publicIPAllocationMethod": "Dynamic",
             "idleTimeoutInMinutes": 4,
             "dnsSettings": {
-              "domainNameLabel": "[variables('webServerLBIP_DNSName')]"
+              "domainNameLabel": "[parameters('dnsLabelPrefix')]"
             }
           }
         },
