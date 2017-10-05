@@ -386,8 +386,8 @@
                 "vhd": {
                   "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), variables('apiVersion')).primaryEndpoints.blob, variables('vhdContainer'), '/',variables('sqlServerDataDiskName'), '.vhd')]"
                 },
-                "caching": "ReadOnly",
-                "createOption": "Attach"
+                "caching": "None",
+                "createOption": "Empty"
               }
             ],
             "networkProfile": {
