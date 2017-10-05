@@ -662,6 +662,3 @@
         }
       ]
     }
-
-
-    "dataDisk1VhdName": "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
