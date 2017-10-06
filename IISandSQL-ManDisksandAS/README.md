@@ -54,6 +54,7 @@ New-AzureRmResourceGroup -Name $RGName -Location $RGLocation
 
 # Deploy IISandSQL-ManDisksandAS ARM Template
 New-AzureRmResourceGroupDeployment -Name CustomerPrefix$DeploymentNumber `
+    -customerPrefixID "5 character customerID e.g. Cust1"
     -ResourceGroupName $RGName `
     -TemplateFile $TemplatePath `
     -dnsLabelPrefix "DNSLabelHere (Lowercase)" `
