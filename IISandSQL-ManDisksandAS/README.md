@@ -36,3 +36,28 @@ The following resources are created by this template:
 
 ## Architecture Diagram
 <img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IISandSQL-ManDisksandAS/images/architecture.png" />
+
+## PowerShell Deployment
+
+Here is some example code for deploying this template using PowerShell.  Remeber to log into your Azure account first using <b>"Login-AzureRMAccount"</b>
+<br>
+
+```PowerShell
+# Deployment Variables
+$DeploymentNumber = "001" # Increment this number for subscequent deployments
+$RGName = "ResourceGroupName"
+$RGLocation = "southcentralus" # Change this as required
+
+# Create new Resource Group for Template Deployment
+New-AzureRmResourceGroup -Name $RGName -Location $RGLocation
+
+# Deploy IISandSQL-ManDisksandAS ARM Template
+New-AzureRmResourceGroupDeployment -Name CustomerPrefix$DeploymentNumber `
+    -ResourceGroupName $RGName `
+    -TemplateFile "Path to the ARM template you're deploying" `
+    -dnsLabelPrefix "DNSLabelHere (Lowercase)" `
+    -adminUsername "AdministratorUsername" `
+    -adminPassword ("AdministratorPassword" | ConvertTo-SecureString -AsPlainText -Force) `
+    -webServerVMSize "Standard_A1" ` # Change as required, allowed values are listed in the template under parameter of the same name
+    -numberOfWebServers 2 ` # Change as required, allowed values are listed in the template under parameter of the same name
+    -sqlServerVMSize "Standard_DS1" # Change as required, allowed values are listed in the template under parameter of the same name
