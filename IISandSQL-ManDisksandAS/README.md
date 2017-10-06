@@ -44,7 +44,7 @@ Here is some example code for deploying this template using PowerShell.  Remeber
 
 ```PowerShell
 # Deployment Variables
-$DeploymentNumber = "001" # Increment this number for subscequent deployments
+$DeploymentName = "Modify this per deployment e.g. Cust1001 (customerPrefixID001)" # Increment the number for subscequent deployments
 $RGName = "ResourceGroupName"
 $RGLocation = "southcentralus" # Change this as required
 $TemplatePath = "Enter the path to your ARM template e.g. C:\ARMTemplates\azuredeploy.json"
@@ -53,13 +53,13 @@ $TemplatePath = "Enter the path to your ARM template e.g. C:\ARMTemplates\azured
 New-AzureRmResourceGroup -Name $RGName -Location $RGLocation
 
 # Deploy IISandSQL-ManDisksandAS ARM Template
-New-AzureRmResourceGroupDeployment -Name CustomerPrefix$DeploymentNumber `
-    -customerPrefixID "5 character customerID e.g. Cust1"
+New-AzureRmResourceGroupDeployment -Name $DeploymentName `
+    -customerPrefixID "5 character customerID e.g. Cust1" `
     -ResourceGroupName $RGName `
     -TemplateFile $TemplatePath `
-    -dnsLabelPrefix "DNSLabelHere (Lowercase)" `
     -adminUsername "AdministratorUsername" `
     -adminPassword ("AdministratorPassword" | ConvertTo-SecureString -AsPlainText -Force) `
+    -dnsLabelPrefix "DNSLabelHere (Lowercase)" `
     -webServerVMSize "Standard_A1" ` # Change as required, allowed values are listed in the template under parameter of the same name
     -numberOfWebServers 2 ` # Change as required, allowed values are listed in the template under parameter of the same name
     -sqlServerVMSize "Standard_DS1" # Change as required, allowed values are listed in the template under parameter of the same name
