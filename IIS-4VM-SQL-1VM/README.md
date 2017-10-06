@@ -41,3 +41,32 @@ The following resources are created by this template:
 
 ## Dependencies Diagram
 <img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IIS-4VM-SQL-1VM/images/dependencies.png" />
+
+## PowerShell Deployment
+
+Here is some example code for deploying this template using PowerShell.  Remeber to log into your Azure account first using <b>"Login-AzureRMAccount"</b>
+<br>
+
+```PowerShell
+# Deployment Variables
+$DeploymentName = "Modify this per deployment e.g. Cust1001 (customerPrefixID001)" # Increment the number for subscequent deployments
+$RGName = "ResourceGroupName"
+$RGLocation = "southcentralus" # Change this as required
+$TemplatePath = "Enter the path to your ARM template e.g. C:\ARMTemplates\azuredeploy.json"
+
+# Create new Resource Group for Template Deployment
+New-AzureRmResourceGroup -Name $RGName -Location $RGLocation
+
+# Deploy IISandSQL-ManDisksandAS ARM Template
+New-AzureRmResourceGroupDeployment -Name $DeploymentName `
+    -customerPrefixID "5 character customerID e.g. Cust1" `
+    -ResourceGroupName $RGName `
+    -TemplateFile $TemplatePath `
+    -adminUsername "AdministratorUsername" `
+    -adminPassword ("AdministratorPassword" | ConvertTo-SecureString -AsPlainText -Force) `
+    -dnsLabelPrefix "DNSLabelHere (Lowercase)" `
+    -webServerVMSize "Standard_A1" ` # Change as required, allowed values are listed in the template under parameter of the same name
+    -numberOfWebServers 2 ` # Change as required, allowed values are listed in the template under parameter of the same name
+    -sqlServerVMSize "Standard_DS1" ` # Change as required, allowed values are listed in the template under parameter of the same name
+    -storageAccountType "Standard_LRS" # Change as required, allowed values are listed in the template under parameter of the same name
+```
