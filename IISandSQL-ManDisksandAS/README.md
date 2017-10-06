@@ -1,4 +1,4 @@
-# IaaS IIS and SQL on Windows Server 2016
+# IaaS IIS and SQL on Windows Server 2016 using Managed Disks and Availability Set
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffixx220%2FARMTemplates%2Fmaster%2FIISandSQL-ManDisksAndAS%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png" />
