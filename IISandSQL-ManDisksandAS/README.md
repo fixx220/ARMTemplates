@@ -31,8 +31,8 @@ The following resources are created by this template:
 - 1 Load balancer with NATing rules.
 
 
-<img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IISandSQL-ManDisksAndAS/images/resources.png" />
+<img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IISandSQL-ManDisksandAS/images/resources.png" />
 
 
 ## Architecture Diagram
-<img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IISandSQL-ManDisksAndAS/images/architecture.png" />
+<img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IISandSQL-ManDisksandAS/images/architecture.png" />
