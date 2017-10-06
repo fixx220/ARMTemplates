@@ -25,6 +25,7 @@ I chose this template as a base because it's well put together, both the templat
 The following resources are created by this template:
 - 1 to 4 Windows Server 2016 VMs with the IIS role installed
 - 1 Windows Server 2016 VM with SQL Server 2016 SP1 installed.
+- SQL Server has a 50GB data disk attached.
 - 1 virtual network with 2 subnets (Frotend and Backend) with NSG rules.
 - 1 storage account for the VHD files.
 - 1 Availability Set for IIS servers.
