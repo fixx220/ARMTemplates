@@ -47,7 +47,7 @@ Here is some example code for deploying this template using PowerShell.  Remeber
 $DeploymentNumber = "001" # Increment this number for subscequent deployments
 $RGName = "ResourceGroupName"
 $RGLocation = "southcentralus" # Change this as required
-$TemplatePath = "Enter the path to your ARM template"
+$TemplatePath = "Enter the path to your ARM template e.g. C:\ARMTemplates\azuredeploy.json"
 
 # Create new Resource Group for Template Deployment
 New-AzureRmResourceGroup -Name $RGName -Location $RGLocation
@@ -62,4 +62,4 @@ New-AzureRmResourceGroupDeployment -Name CustomerPrefix$DeploymentNumber `
     -webServerVMSize "Standard_A1" ` # Change as required, allowed values are listed in the template under parameter of the same name
     -numberOfWebServers 2 ` # Change as required, allowed values are listed in the template under parameter of the same name
     -sqlServerVMSize "Standard_DS1" # Change as required, allowed values are listed in the template under parameter of the same name
-    ```
+```
