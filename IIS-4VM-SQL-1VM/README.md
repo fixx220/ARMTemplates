@@ -37,3 +37,7 @@ The following resources are created by this template:
 
 ## Architecture Diagram
 <img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IIS-4VM-SQL-1VM/images/architecture.png" />
+
+
+## Dependencies Diagram
+<img src="https://raw.githubusercontent.com/fixx220/ARMTemplates/master/IIS-4VM-SQL-1VM/images/dependencies.png" />
