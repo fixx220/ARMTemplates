@@ -1,0 +1,7 @@
+{
+    "itemDisplayName": "IaaS IIS and SQL Using Managed Disks and Availability Set",
+    "description": "Creates 1-4 IIS VMs and a single SQL 2016 SP1 VM using managed disks and availability set.  Creates vNet, NSGs, Load Balancer",
+    "summary": "This template creates one to four Window Server Windows Server 2016 VM(s) with IIS configured using DSC and one SQL Server 2016 standard edition VM.  All using managed disks and Availability Set",
+    "githubUsername": "fixx220",
+    "dateUpdated": "2017-10-06"
+  }
