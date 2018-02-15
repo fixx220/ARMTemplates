@@ -35,6 +35,9 @@
         "imageVersion": {
             "type": "string"
         },
+        "zones": {
+            "type": "array"
+        },
         "_artifactsLocation": {
             "type": "string"
         },
