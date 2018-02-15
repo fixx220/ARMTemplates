@@ -97,7 +97,7 @@
     },
     "existingSubnetNames": {
       "type": "array",
-      "defaultValue": ["sqlSubnet1","sqlSubnet2","sqlSubnet3"],
+      "defaultValue": ["Production","SQLCluster","SQLNetwork2"],
       "metadata": {
         "description": "Name of the existing subnets in the existing VNET to which the SQL Server VMs should be deployed"
       }
