@@ -3,11 +3,11 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-			"type": "string",
-			"defaultValue": "South Central US",
-			"metadata": {
-				"description": "Location for the VM, only certain regions support zones during preview."
-			}
+      "type": "string",
+      "defaultValue": "South Central US",
+      "metadata": {
+        "description": "Location for the VM, only certain regions support zones during preview."
+      }
     },
     "namePrefix": {
       "type": "string",
@@ -97,7 +97,11 @@
     },
     "existingSubnetNames": {
       "type": "array",
-      "defaultValue": ["Production","SQLCluster","SQLNetwork2"],
+      "defaultValue": [
+        "Production",
+        "SQLCluster",
+        "SQLNetwork2"
+      ],
       "metadata": {
         "description": "Name of the existing subnets in the existing VNET to which the SQL Server VMs should be deployed"
       }
@@ -119,7 +123,7 @@
       "metadata": {
         "description": "Location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "https://github.com/fixx220/ARMTemplates/tree/master/sql-alwayson-md-mult-subnets-zones"
+      "defaultValue": "https://raw.githubusercontent.com/fixx220/ARMTemplates/tree/master/sql-alwayson-md-mult-subnets-zones"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
