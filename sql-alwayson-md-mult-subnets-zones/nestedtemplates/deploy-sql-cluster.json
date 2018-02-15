@@ -335,9 +335,6 @@
                     },
                     "imageVersion": {
                         "value": "[parameters('imageVersion')]"
-                    },
-                    "zones": {
-                        "value": "[take(skip(variables('zones'),mod(copyIndex(),length(variables('zones')))),1)]"
                     }
                 }
             }

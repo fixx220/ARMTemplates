@@ -35,9 +35,6 @@
         "imageVersion": {
             "type": "string"
         },
-        "zones": {
-            "type": "array"
-        },
         "_artifactsLocation": {
             "type": "string"
         },
@@ -53,7 +50,6 @@
             "apiVersion": "2017-03-30",
 			"location": "[parameters('location')]",
             "name": "[parameters('vmName')]",
-            "zones": "[parameters('zones')]",
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
